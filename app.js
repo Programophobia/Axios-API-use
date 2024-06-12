@@ -4,7 +4,8 @@ search.addEventListener('submit', async function(e){
 	e.preventDefault();
 	const input = search.elements.q.value
 	console.log(input);
-	const chill = await axios.get(`https://api.tvmaze.com/search/shows?q=${input}`)
+	const config = {params: {q: input}}
+	const chill = await axios.get(`https://api.tvmaze.com/search/shows`, config)
 	getImg(chill.data)
 })
 
